@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/Sliding Window" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Two Pointers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Binary Search" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
