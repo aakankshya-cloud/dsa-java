@@ -12,7 +12,4 @@ public class PeakElement {
         }
         return low;
     }
-    public static void main(String[] args) {
-        int[] nums = {}
-    }
 }
