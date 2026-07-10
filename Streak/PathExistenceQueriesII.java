@@ -1,4 +1,7 @@
+import java.util.Arrays;
+
 public class PathExistenceQueriesII {
+    public int[] pathExistenceQueries(int n, int[] nums, int maxDiff, int[][] queries){
     int[][] pairs = new int[n][2];
         for (int i = 0; i < n; i++) {
         pairs[i][0] = nums[i];
@@ -67,4 +70,5 @@ public class PathExistenceQueriesII {
     }
 
         return ans;
+}
 }
