@@ -1,13 +1,13 @@
 import java.util.*;
-class Pair {
-    TreeNode node;
-    int hd;
-
-    Pair(TreeNode node, int hd) {
-        this.node = node;
-        this.hd = hd;
-    }
-}
+//class Pair {
+//    TreeNode node;
+//    int hd;
+//
+//    Pair(TreeNode node, int hd) {
+//        this.node = node;
+//        this.hd = hd;
+//    }
+//}
 public class TopViewOfBinaryTree {
     public void view (TreeNode root) {
         if(root == null){
