@@ -13,7 +13,7 @@ public class BFS {
             Integer node = queue.poll();
             bfs.add(node);
             for (Integer it : adj.get(node)) {
-                if (visited[it] == false) {
+                if (!visited[it]) {
                     visited[it] = true;
                     queue.add(it);
                 }
