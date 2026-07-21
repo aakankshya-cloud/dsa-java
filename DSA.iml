@@ -13,6 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Stack And Queue" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Revision/Slidiing Window" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Revision/Two Pointers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Revision/Binary Search" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
