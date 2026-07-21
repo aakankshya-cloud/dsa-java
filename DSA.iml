@@ -11,6 +11,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Streak" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Graph" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Stack And Queue" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Revision/Slidiing Window" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Revision/Two Pointers" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
