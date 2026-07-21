@@ -59,7 +59,7 @@ public class ThreeSum {
 
     public static void main(String[] args) {
 
-        ThreeSum obj = new ThreeSum();
+        ThreSum obj = new ThreSum();
 
         int[] nums = {-1, 0, 1, 2, -1, -4};
 
