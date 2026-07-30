@@ -76,4 +76,26 @@ public class InsertionInDLL {
         }
         return head;
     }
+    public Node InsertBeforeNode(Node head, Node value){
+        if(head == null){
+            return null;
+        }
+        if(head == value){
+            if(head.next == null){
+                return null;
+            }
+            head = head.next;
+            head.back = null;
+            return head;
+        }
+        Node temp = head;
+        Node prev = null;
+        while(temp != null){
+            if(temp == value){
+                prev.next = temp.next;
+                temp.next.back = prev;
+            }
+            prev = temp;
+        }
+    }
 }
