@@ -61,5 +61,33 @@ public class DeletionInDLL {
         }
         return head;
     }
+    public Node DeleteNode(Node head, Node val){
+        if(head == null){
+            return null;
+        }
+
+        if(head == val){
+            if(head.next == null){
+                return null;
+            }
+            head = head.next;
+            head.back = null;
+            return head;
+        }
+        Node temp = head;
+        Node prev = null;
+        while(temp != null){
+            if(temp == val){
+                prev.next = temp.next;
+                if(temp.next != null) {
+                    temp.next.back = prev;
+                }
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
 
 }
