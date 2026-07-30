@@ -50,4 +50,26 @@ public class Insertion {
         }
         return head;
     }
+    public Node InsertBeforeX(Node head,int data,int x){
+        Node node = new Node(data);
+        if(head == null){
+            return null;
+        }
+        if(head.data == x){
+            node.next = head;
+            return node;
+        }
+        Node temp = head;
+        Node prev = null;
+        while(temp != null){
+            if(temp.data == x){
+                prev.next = node;
+                node.next = temp;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
 }
