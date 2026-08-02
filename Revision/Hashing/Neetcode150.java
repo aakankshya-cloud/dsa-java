@@ -1,24 +1,18 @@
 import java.util.*;
 
 public class Neetcode150 {
-    public int longestConsecutive(int[] nums){
-        HashSet<Integer> set = new HashSet<>();
-        for(int i = 0; i < nums.length; i++){
-            set.add(nums[i]);
-        }
-        int count = 1, max = 1;
-        if (nums.length == 0) {
-            return 0;
-        }
-        for(int current : set){
-            if(!set.contains(current - 1)){
-                while(set.contains(current + 1)){
-                    current = current + 1;
-                    count++;
-
-                }
-                max = Integer.max(max,count);
-                count = 1;
+    public int maxArea(int[] heights){
+        int i = 0, j = heights.length - 1;
+        int max = 1;
+        int area = 1;
+        while(i < j){
+            area = Math.min(heights[i] , heights[j]) * (j - i);
+            max = Math.max(max,area);
+            if(heights[i] < heights[j]){
+                i++;
+            }
+            else{
+                j--;
             }
         }
         return max;
