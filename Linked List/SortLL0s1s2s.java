@@ -1,32 +1,33 @@
 public class SortLL0s1s2s {
     public Node Sort(Node head){
         Node temp = head;
-        int c0 = 0, c1 = 0, c2 = 0;
-        if(head == null){
-            return null;
+        if(head == null || head.next == null){
+            return head;
         }
-        while(temp.next != null){
-            if(temp.data == 0) c0++;
-            else if(temp.data == 1) c1++;
-            else c2++;
-            temp = temp.next;
-        }
-        temp = head;
-        while(temp.next != null){
-            if(c0 != 0){
-                temp.data = 0;
-                c0--;
+        Node L0 = new Node(-1,null);
+        Node L1 = new Node(-1,null);
+        Node L2 = new Node(-1,null);
+        Node zero = L0;
+        Node one = L1;
+        Node two = L2;
+        while(temp!= null){
+            if(temp.data == 0){
+                zero.next = temp;
+                zero = zero.next;
             }
-            else if(c1 != 0){
-                temp.data = 1;
-                c1--;
+            else if(temp.data == 1){
+                one.next = temp;
+                one = one.next;
             }
-            else{
-                temp.data = 2;
-                c2--;
+            else if(temp.data == 2){
+                two.next = temp;
+                two = two.next;
             }
             temp = temp.next;
         }
-        return head;
+        zero.next = (L1.next != null) ? L1.next : L2.next;
+        one.next = L2.next;
+        two.next = null;
+        return L0.next;
     }
 }
