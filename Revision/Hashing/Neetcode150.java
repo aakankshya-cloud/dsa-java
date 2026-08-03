@@ -3,13 +3,19 @@ import java.util.*;
 public class Neetcode150 {
     public int[] twoSum(int[] numbers, int target) {
         int[] result = new int[2];
-        for(int i = 0; i < numbers.length; i++){
-            for(int j = i + 1; j < numbers.length; j++){
-                if(numbers[i] + numbers[j] == target){
-                    result[0] = i;
-                    result[1] = j;
-                    return result;
-                }
+        int left = 0, right = numbers.length - 1;
+        while(left < right){
+            int sum = numbers[left] + numbers[right];
+            if(sum > target){
+                right--;
+            }
+            else if(sum < target){
+                left++;
+            }
+            else{
+                result[0] = left;
+                result[1] = right;
+                return result;
             }
         }
         return new int[2];
