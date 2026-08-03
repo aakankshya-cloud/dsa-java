@@ -3,28 +3,18 @@ public class RemoveNthFromEnd {
         if(head == null){
             return null;
         }
-        Node temp = head;
-        int count = 0;
-        while(temp != null){
-            count++;
-            temp = temp.next;
+        Node fast = head;
+        for(int i = 0; i < n; i++){
+            fast = fast.next;
         }
-        int k = count - n + 1;
-        if(k == 1){
-            return head.next;
+        if(fast == null) return head.next;
+        Node slow = head;
+        while(fast.next != null){
+            slow = slow.next;
+            fast = fast.next;
         }
-        count = 0;
-        Node prev = null;
-        temp = head;
-        while(temp != null){
-            count++;
-            if(count == k){
-                prev.next = temp.next;
-                break;
-            }
-            prev = temp;
-            temp = temp.next;
-        }
+        slow.next = slow.next.next;
         return head;
     }
+
 }
