@@ -1,13 +1,25 @@
 import java.util.*;
 
 public class Neetcode150 {
-    public int maxProfit(int[] prices){
-        int min = Integer.MAX_VALUE;
-        int max = 0;
-        for(int i = 1; i < prices.length; i++){
-            min = Math.min(min,prices[i - 1]);
-            max = Math.max(max , prices[i] - min);
+    public int lengthOfLongestSubstring(String s){
+        HashSet<Character> set = new HashSet<>();
+        int i = 0, j = 0, max = -1;
+        while(j < s.length()){
+            if(!set.contains(s.charAt(j))){
+                set.add(s.charAt(j));
+            }
+            else{
+                max = Integer.max(max,set.size());
+                while(set.contains(s.charAt(j))) {
+                    set.remove(s.charAt(i));
+                    i++;
+                }
+                set.add(s.charAt(j));
+            }
+            j++;
+            max = Integer.max(max,set.size());
         }
         return max;
+
     }
 }
