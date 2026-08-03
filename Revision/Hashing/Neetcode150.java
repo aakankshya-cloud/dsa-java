@@ -1,38 +1,17 @@
 import java.util.*;
 
 public class Neetcode150 {
-    public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        Arrays.sort(nums);
-        for(int i = 0; i < nums.length - 2; i++) {
-            if(i > 0 && nums[i] == nums[i-1])
-                continue;
-            int left = i + 1 , right = nums.length - 1;
-            while(left < right){
-                int sum = nums[i] + nums[left] + nums[right];
-                if(sum > 0){
-                    right--;
-                }
-                else if(sum < 0){
-                    left++;
-                }
-                else{
-                    ArrayList<Integer> arr = new ArrayList<>();
-                    arr.add(nums[i]);
-                    arr.add(nums[left]);
-                    arr.add(nums[right]);
-                    list.add(arr);
-                    left++;
-                    right--;
-                    while(left < right && nums[left] == nums[left - 1]){
-                        left++;
-                    }
-                    while(left < right && nums[right] == nums[right + 1]){
-                        right--;
-                    }
+    public int[] twoSum(int[] numbers, int target) {
+        int[] result = new int[2];
+        for(int i = 0; i < numbers.length; i++){
+            for(int j = i + 1; j < numbers.length; j++){
+                if(numbers[i] + numbers[j] == target){
+                    result[0] = i;
+                    result[1] = j;
+                    return result;
                 }
             }
         }
+        return new int[2];
     }
-
 }
