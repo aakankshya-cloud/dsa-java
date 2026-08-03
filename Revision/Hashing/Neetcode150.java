@@ -1,23 +1,13 @@
 import java.util.*;
 
 public class Neetcode150 {
-    public int[] twoSum(int[] numbers, int target) {
-        int[] result = new int[2];
-        int left = 0, right = numbers.length - 1;
-        while(left < right){
-            int sum = numbers[left] + numbers[right];
-            if(sum > target){
-                right--;
-            }
-            else if(sum < target){
-                left++;
-            }
-            else{
-                result[0] = left;
-                result[1] = right;
-                return result;
-            }
+    public int maxProfit(int[] prices){
+        int min = Integer.MAX_VALUE;
+        int max = 0;
+        for(int i = 1; i < prices.length; i++){
+            min = Math.min(min,prices[i - 1]);
+            max = Math.max(max , prices[i] - min);
         }
-        return new int[2];
+        return max;
     }
 }
