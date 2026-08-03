@@ -13,4 +13,17 @@ public class ReverseLL {
         }
         return prev;
     }
+
+//    Reverse
+    public Node Reverse(Node head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        Node newHead = Reverse(head.next);
+        Node front = head.next;
+        front.next = head;
+        head.next = null;
+        return newHead;
+    }
+
 }
