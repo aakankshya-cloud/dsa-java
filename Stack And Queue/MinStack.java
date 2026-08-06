@@ -1,45 +1,55 @@
 import java.util.Stack;
 
-class Pair {
-    int first;
-    int second;
-
-    Pair(int first, int second) {
-        this.first = first;
-        this.second = second;
+class MinStack {
+    Stack<Long> stack;
+    long min;
+    public MinStack() {
+        stack = new Stack<>();
+        min = Long.MAX_VALUE;
     }
-}
-public class MinStack {
-    Stack<Pair> stack = new Stack<>();
 
-
-    public void push(int value) {
+    public void push(long value) {
         if(stack.isEmpty()){
-            stack.push(new Pair(value,value));
+            min = value;
+            stack.push(value);
         }
         else{
-            stack.push(new Pair(value,stack.peek().second));
+            if(value > min){
+                stack.push(value);
+            }
+            else{
+                long encoded = 2*value - min;
+                stack.push(encoded);
+                min = value;
+            }
         }
     }
 
     public void pop() {
-        if(stack.isEmpty()) return;
-
-
-
+        if(stack.isEmpty()){
+            return;
+        }
+        long x = stack.pop();
+        if(x < min){
+            min = 2*min - x;
+        }
     }
 
-    public int top() {
-        if(stack.isEmpty()) return 0;
-        return stack.peek().first;
-
+    public long top() {
+        if(stack.isEmpty()){
+            return 0;
+        }
+        long x = stack.peek();
+        if(x > min){
+            return x;
+        }
+        return min;
     }
 
-    public int getMin() {
-        return stack.peek().second;
+    public long getMin() {
+        if(stack.isEmpty()){
+            return -1;
+        }
+        return min;
     }
-    public MinStack() {
-
-    }
-
 }
