@@ -20,4 +20,33 @@ public class TrappingRainwater {
         return total;
     }
 
+
+public int trap(int[] height){
+    int i = 0, j = height.length - 1;
+    int leftMax = 0, rightMax = 0;
+    int total = 0;
+    while(i <= j){
+        if(height[i] <= height[j]){
+            if(height[i] >= leftMax){
+                total += leftMax - height[i];
+            }
+            else{
+                leftMax = height[i];
+            }
+            i++;
+        }
+        else{
+            if(rightMax <= height[j]){
+                total += rightMax - height[j];
+            }
+            else{
+                rightMax = height[j];
+            }
+            j--;
+        }
+    }
+    return total;
+}
+
+
 }
