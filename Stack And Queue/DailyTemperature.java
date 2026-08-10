@@ -1,13 +1,20 @@
+import java.util.Stack;
+
 public class DailyTemperature {
-    public int[] dailyTemperatures(int[] temperatures){
+    public int[] dailyTemperatures(int[] temperatures) {
         int[] result = new int[temperatures.length];
-        for(int i = 0; i < temperatures.length; i++){
-            for(int j = i + 1; j < temperatures.length; j++){
-                if(temperatures[j] > temperatures[i]){
-                    result[i] = j - i;
-                    break;
-                }
+        Stack<Integer> stack = new Stack<>();
+        for (int i = temperatures.length - 1; i >= 0; i--) {
+            while(!stack.isEmpty() && temperatures[stack.peek()] <= temperatures[i]){
+                stack.pop();
             }
+            if (stack.isEmpty()) {
+                result[i] = 0;
+            }
+            else{
+                result[i] = stack.peek() - i;
+            }
+            stack.push(i);
         }
         return result;
     }
