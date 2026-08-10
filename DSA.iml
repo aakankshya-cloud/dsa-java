@@ -17,6 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Revision/Hashing" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Revision/Trees" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Linked List" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
