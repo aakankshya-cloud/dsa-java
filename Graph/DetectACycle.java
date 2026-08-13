@@ -40,7 +40,7 @@ public class DetectACycle {
             vis[i] = false;
         }
         for(int i = 0; i < V; i++){
-            if(vis[i] == false){
+            if(!vis[i]){
                 if(checkForCycle(adj,vis,i,V)) return true;
             }
         }

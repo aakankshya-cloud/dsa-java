@@ -2,17 +2,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NumberOfProvinces {
-    public void dfs(ArrayList<ArrayList<Integer>> adj,int node,int[] vs){
-        vs[node] = 1;
-        for(int it : adj.get(node)){
-            if(vs[it] == 0){
-                dfs(adj,it,vs);
+    public void dfs(ArrayList<ArrayList<Integer>> adj,int node,int[] vis){
+        vis[node] = 1;
+        for(Integer it : adj.get(node)){
+            if(vis[it] == 0) {
+                dfs(adj,it,vis);
             }
         }
     }
     public int findCircleNum(int[][] isConnected , int V){
-        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
-        int[] vs = new int[V];
+        int[] vis = new int[V];
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
         for(int i = 0; i < V; i++){
             adj.add(new ArrayList<>());
         }
@@ -20,16 +20,17 @@ public class NumberOfProvinces {
             for(int j = 0; j < V; j++){
                 if(isConnected[i][j] == 1 && i != j){
                     adj.get(i).add(j);
+                    adj.get(j).add(i);
                 }
             }
         }
-        int count = 0;
+        int cnt = 0;
         for(int i = 0; i < V; i++){
-            if(vs[i] == 0){
-                count++;
-                dfs(adj,i,vs);
+            if(vis[i] == 0){
+                cnt++;
+                dfs(adj,i,vis);
             }
         }
-        return count;
+        return cnt;
     }
 }
