@@ -18,7 +18,7 @@ public class DetectACycle {
         vis[src] = true;
         while(!queue.isEmpty()){
             int node = queue.peek().first;
-            int parent = queue.peek().second;
+            int pnode = queue.peek().second;
             queue.remove();
             for(int adjNode : adj.get(node)){
                 if(!vis[adjNode]){
@@ -26,7 +26,7 @@ public class DetectACycle {
                     queue.add(new Pair(adjNode,node));
                 }
                 else{
-                    if(parent != adjNode){
+                    if(pnode != adjNode){
                         return true;
                     }
                 }
