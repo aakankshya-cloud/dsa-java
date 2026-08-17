@@ -13,44 +13,35 @@ public class RottenOranges {
             this.tm = tm;
         }
     }
-    public int orangesRotting(int[][] grid){
-        int n = grid.length;
-        int m = grid[0].length;
+    public int orangesRotting(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean[][] vis = new boolean[m][n];
         Queue<Pair> queue = new LinkedList<>();
-        int[][] visited = new int[grid.length][grid[0].length];
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < m; j++){
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
                 if(grid[i][j] == 2){
+                    vis[i][j] = true;
                     queue.add(new Pair(i,j,0));
-                    visited[i][j] = 2;
-                }
-                else{
-                    visited[i][j] = 0;
                 }
             }
         }
         int tm = 0;
-        int drow[] = {-1,0,1,0};
-        int dcol[] = {0,1,0,-1};
         while(!queue.isEmpty()){
             int r = queue.peek().row;
             int c = queue.peek().col;
             int t = queue.peek().tm;
-            tm = Math.max(tm , t);
             queue.remove();
+            tm = Math.max(tm,t);
+            int[] drow = {0,-1,0,1};
+            int[] dcol = {-1,0,1,0};
             for(int i = 0; i < 4; i++){
-                int nrow = r + drow[i];
-                int ncol = c + dcol[i];
-                if(nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && visited[nrow][ncol] != 2 && grid[nrow][ncol] == 1){
-                    queue.add(new Pair(nrow,ncol, t + 1));
-                    visited[nrow][ncol] = 2;
-                }
-            }
-        }
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < m; j++){
-                if(visited[i][j] != 2 && grid[i][j] == 1){
-                    return -1;
+                int row = r + drow[i];
+                int col = c + dcol[i];
+                if(row >= 0 && row < m && col >= 0 && col < n && !vis[row][col] && grid[row][col] == 1){
+                    vis[row][col] = true;
+                    grid[row][col] = 2;
+                    queue.add(new Pair(row,col,t + 1));
                 }
             }
         }
