@@ -27,6 +27,7 @@ public class EventualSafeStates {
             else{
                 if(pathVis[adjNode]){
                     check[node] = 0;
+                    pathVis[node] = false;
                     return true;
                 }
             }
