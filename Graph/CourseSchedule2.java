@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class CourseSchedule2{
-    public boolean isPossible(int V, int[][] prerequisites){
+    public ArrayList<Integer> isPossible(int V, int[][] prerequisites){
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         ArrayList<Integer> result = new ArrayList<>();
         for(int i = 0; i < V; i++){
@@ -35,7 +35,6 @@ public class CourseSchedule2{
                 }
             }
         }
-        if(result.size() < V) return false;
-        return true;
+        return result;
     }
 }
