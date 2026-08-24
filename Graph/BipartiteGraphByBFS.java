@@ -1,37 +1,37 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
-// any graph with a even cycle length can also be bipartite
-// any graph that does not have a cycle is also a bipartite
-public class BipartiteGraphByBFS {
-    public boolean isBipartite(int V, ArrayList<ArrayList<Integer>> adj){
-        Queue<Integer> queue = new LinkedList<>();
-        int[] color = new int[V];
+class Solution {
+    public boolean isBipartite(int V, List<List<Integer>> edges) {
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         for(int i = 0; i < V; i++){
-            color[i] = -1;
+            adj.add(new ArrayList<>());
         }
-        for(int i = 0; i < V; i++) {
-            if (color[i] == -1) {
-                queue.add(i);
-                color[i] = 0;
-                while (!queue.isEmpty()) {
-                    int node = queue.peek();
-                    queue.remove();
-                    for (int adjNode : adj.get(node)) {
-                        if (color[adjNode] == -1) {
-                            color[adjNode] = 1 - color[node];
-                            queue.add(adjNode);
-                        } else {
-                            if (color[node] == color[adjNode]) {
-                                return false;
-                            }
-                        }
+        for(List<Integer> edge : edges){
+            int u = edge.get(0);
+            int v = edge.get(1);
+            adj.get(u).add(v);
+            adj.get(v).add(u);
+        }
+        Queue<Integer> queue = new LinkedList<>();
+        int[] vis = new int[V];
+        Arrays.fill(vis, -1);
+        queue.add(0);
+        vis[0] = 0;
+        while(!queue.isEmpty()){
+            int node = queue.poll();
+            for(int adjNode : adj.get(node)){
+                if(vis[adjNode] == -1){
+                    vis[adjNode] = 1 - vis[node];
+                    queue.add(adjNode);
+                }
+                else{
+                    if(vis[adjNode] == vis[node]){
+                        return false;
                     }
                 }
             }
-        }
-        return true;
     }
+        return true;
 
+    }
 }
