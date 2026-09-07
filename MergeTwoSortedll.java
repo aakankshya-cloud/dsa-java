@@ -1,0 +1,33 @@
+//public class MergeTwoSortedll {
+//    public class ListNode {
+//        int val;
+//        ListNode next;
+//        ListNode() {}
+//        ListNode(int val) { this.val = val; }
+//        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+//    }
+//    public ListNode mergeTwoLists(ListNode list1, ListNode list2){
+//        ListNode result = new ListNode(-1);
+//        ListNode t1 = list1;
+//        ListNode t2 = list2;
+//        ListNode t3 = result;
+//        while(t1 != null && t2 != null){
+//            if(t1.val <= t2.val){
+//                t3.next = t1;
+//                t1 = t1.next;
+//            }
+//            else{
+//                t3.next = t2;
+//                t2 = t2.next;
+//            }
+//            t3 = t3.next;
+//        }
+//        if(t1 != null){
+//            t3.next = t1;
+//        }
+//        if(t2 != null){
+//            t3.next = t2;
+//        }
+//        return result.next;
+//    }
+//}
