@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Sliding Window" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Two Pointers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Binary Search" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Hashing" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Trees" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Streak" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Graph" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Stack And Queue" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Revision/Slidiing Window" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Revision/Two Pointers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Revision/Binary Search" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Revision/Hashing" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Revision/Trees" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Linked List" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
