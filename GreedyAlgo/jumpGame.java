@@ -3,15 +3,14 @@ package GreedyAlgo;
 public class jumpGame {
     public boolean canJump(int[] nums){
         int maxIndex = 0;
+        int index = 0;
         for(int i = 0; i < nums.length; i++){
             if(i > maxIndex){
                 return false;
             }
-            maxIndex = Math.max(maxIndex, i + nums[i]);
+            index = i + nums[i];
+            maxIndex = Math.max(maxIndex, index);
         }
-        if(maxIndex >= nums.length){
-            return true;
-        }
-        return false;
+        return true;
     }
 }
