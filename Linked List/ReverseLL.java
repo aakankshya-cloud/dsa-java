@@ -1,29 +1,25 @@
 import java.util.Deque;
 import java.util.LinkedList;
-
+public class ListNode {
+  int val;
+   ListNode next;
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 public class ReverseLL {
-    public Node Reverse(Node head){
-        Node temp = head;
-        Node prev = null;
+    public ListNode reverseList(ListNode head) {
+        if(head == null){
+            return null;
+        }
+        ListNode temp = head;
+        ListNode prev = null;
         while(temp != null){
-            Node front = temp.next;
+            ListNode next = temp.next;
             temp.next = prev;
             prev = temp;
-            temp = front;
+            temp = next;
         }
         return prev;
-    }
-
-//    Reverse
-    public Node Reverse(Node head){
-        if(head == null || head.next == null){
-            return head;
-        }
-        Node newHead = Reverse(head.next);
-        Node front = head.next;
-        front.next = head;
-        head.next = null;
-        return newHead;
     }
 
 }
