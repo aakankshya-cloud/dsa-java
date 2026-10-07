@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class CopyLLWithRandomPointer {
     class Node{
         int data;
@@ -9,24 +11,19 @@ public class CopyLLWithRandomPointer {
             this.random = null;
         }
     }
-    public Node copyRandomList(Node head){
-            if(head == null){
-                return head;
+        public Node copyRandomList(Node head) {
+            HashMap<Node, Node> map = new HashMap<>();
+            Node curr = head;
+            while(curr != null){
+                map.put(curr, new Node(curr.val));
+                curr = curr.next;
             }
-            HashMap<Node,Node> map = new HashMap<>();
-            Node temp = head;
-            while(temp != null){
-                map.put(temp,new Node(temp.val));
-                temp = temp.next;
-            }
-            temp = head;
-            while(temp != null){
-                Node copy = map.get(temp);
-                copy.next = map.get(temp.next);
-                copy.random = map.get(temp.random);
-                temp = temp.next;
+            curr = head;
+            while(curr != null){
+                map.get(curr).next = map.get(curr.next);
+                map.get(curr).random = map.get(curr.random);
+                curr = curr.next;
             }
             return map.get(head);
         }
-    }
 
