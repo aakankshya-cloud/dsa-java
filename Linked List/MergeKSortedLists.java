@@ -17,11 +17,11 @@ public class MergeKSortedLists {
             }
         }
         ListNode dummy = new ListNode(-1);
-        ListNode tail = dummy;
+        ListNode temp = dummy;
         while(!pq.isEmpty()){
             ListNode smallest = pq.poll();
-            tail.next = smallest;
-            tail = tail.next;
+            temp.next = smallest;
+            temp = temp.next;
             if(smallest.next != null){
                 pq.offer(smallest);
             }
