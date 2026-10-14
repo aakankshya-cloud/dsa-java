@@ -9,7 +9,10 @@ public class CombinationSum {
             list.add(new ArrayList<>(current));
             return;
         }
-        if (target < 0 || index == nums.length) {
+        if (target < 0) {
+            return;
+        }
+        if(index == nums.length){
             return;
         }
         current.add(nums[index]);
